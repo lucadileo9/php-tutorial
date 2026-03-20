@@ -2,12 +2,11 @@
 // questo file dovendo gestire la logica di salvataggio di una nuova nota, 
 // non necessita nessuna view, ma solo di un redirect alla pagina delle note dopo aver salvato la nuova nota nel database
 
+use Core\App;
 use Core\Database;
 use Core\Validator;
 
-$config = require base_path ('config.php');
-$db = new Database($config['database']);
-
+$db = App::resolve(Database::class);
 
 $errors = [];
 // N.B: non è necessario controllare il tipo di richiesta, in quanto questa rotta 

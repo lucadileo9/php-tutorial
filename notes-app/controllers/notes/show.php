@@ -2,10 +2,9 @@
 
 use Core\Response;
 use Core\Database;
+use Core\App;
 
-$config = require base_path("config.php");
-
-$db = new Database($config["database"], "root", "");
+$db = App::resolve(Database::class);
 
 $note = $db->query('select * from notes where id = :id', ['id' => $_GET['id']])->findOrFail();
 

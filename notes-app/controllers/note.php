@@ -7,11 +7,11 @@ $db = new Database($config["database"], "root", "");
 $note = $db->query('select * from notes where id = :id', ['id' => $_GET['id']])->fetch();
 
 if (!$note) {
-    abort(404);
+    abort(Response::NOT_FOUND);
 }
 
 if ($note['user_id'] != 1) {
-    abort(403);
+    abort(Response::FORBIDDEN);
 }
 
 require 'views/note.view.php';

@@ -16,6 +16,10 @@ $router = new Core\Router();
 $routes = require base_path("routes.php");
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+
+// qui sto dicendo: se esiste un parametro _method in POST, usalo come metodo HTTP
+// altrimenti, usa il metodo HTTP della richiesta
+// questo è utile per supportare metodi HTTP come PUT e DELETE che non sono supportati dai form HTML
 $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
 $router->route($uri, $method);

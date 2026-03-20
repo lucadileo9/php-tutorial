@@ -1,8 +1,7 @@
 <?php require('partials/head.php') ?>
 <?php require('partials/header.php') ?>
 
-<main>
-    <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+    <div class="mt-4 py-6 sm:px-6 lg:px-8">
         <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="mt-5 md:col-span-2 md:mt-0">
                 <form method="POST">
@@ -30,6 +29,5 @@
             </div>
         </div>
     </div>
-</main>
 
 <?php require('partials/footer.php') ?>

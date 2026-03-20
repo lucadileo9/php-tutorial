@@ -4,13 +4,13 @@ $config = require("config.php");
 
 $db = new Database($config["database"], "root", "");
 
-$note = $db->query('select * from notes where id = :id', ['id' => $_GET['id']])->fetch();
+$note = $db->query('select * from notes where id = :id', ['id' => $_GET['id']])->find();
 
 if (!$note) {
     abort(Response::NOT_FOUND);
 }
 
-if ($note['user_id'] != 1) {
+if ($note['user_id'] !== 1) {
     abort(Response::FORBIDDEN);
 }
 

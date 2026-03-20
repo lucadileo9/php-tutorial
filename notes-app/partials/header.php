@@ -37,6 +37,8 @@
               <a href="/" class="block px-3 py-2 text-base font-semibold text-white hover:bg-white/5">Home</a>
               <a href="about" class="block px-3 py-2 text-base font-semibold text-white hover:bg-white/5">About</a>
               <a href="contact" class="block px-3 py-2 text-base font-semibold text-white hover:bg-white/5">Contact</a>
+              <a href="notes" class="block px-3 py-2 text-base font-semibold text-white hover:bg-white/5">Notes</a>
+            
             </div>
           </div>
         </el-dialog-panel>

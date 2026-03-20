@@ -13,6 +13,7 @@
       <a href="/" class="text-sm/6 font-semibold text-white">Home</a>
       <a href="about" class="text-sm/6 font-semibold text-white">About</a>
       <a href="contact" class="text-sm/6 font-semibold text-white">Contact</a>
+      <a href="notes" class="text-sm/6 font-semibold text-white">Notes</a>
     </div>
   </nav>
 

@@ -23,5 +23,6 @@ function resolve_route($routes) {
 // ---- 404 Function ----
 function abort($code) {
     http_response_code($code);
-    return "views/{$code}.php";
+    require "views/{$code}.php";
+    die();
 }

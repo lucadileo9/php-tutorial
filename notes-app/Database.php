@@ -17,13 +17,11 @@ class Database {
 
         $this->connection = new PDO($dsn, $user, $password);
     }
-    public function query ($query) {
-        // var_dump($pdo->query("SELECT DATABASE()")->fetchColumn());
-
+    
+    public function query($query, $params = [])
+    {
         $statement = $this->connection->prepare($query);
-        $statement->execute();
-
+        $statement->execute($params);
         return $statement;
-
     }
 }

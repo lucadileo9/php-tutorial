@@ -37,7 +37,7 @@ if ($user && password_verify($_POST['password'], $user['password'])) {
     
 }
 
-return view('session/create.view.php', [
+return view('sessions/create.view.php', [
     'errors' => [
         'email' => 'No matching account found for that email address and password.'
     ]

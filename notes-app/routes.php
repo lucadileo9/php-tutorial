@@ -21,3 +21,6 @@ $router->delete("/note", "controllers/notes/destroy.php");
 
 $router->get("/note/edit", "controllers/notes/edit.php");
 $router->put("/note", "controllers/notes/update.php");
+
+$router->get("/registration", "controllers/users/create.php");
+$router->post("/registration", "controllers/users/store.php");

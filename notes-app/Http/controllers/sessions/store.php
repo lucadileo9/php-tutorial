@@ -13,8 +13,7 @@ if ($result['success']) {
 // Store errors in flash for PRG pattern
 Session::flash('errors', $result['errors']);
 Session::flash('old', [
-    'email' => $_POST['email'],
-    'password' => $_POST['password']
+    'email' => $_POST['email']
 ]);
 redirect('/login');
 

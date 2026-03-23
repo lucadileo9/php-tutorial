@@ -35,6 +35,9 @@ function base_path($path)
 
 function view($path, $attributes = [])
 {
+    // Merge flash data with attributes
+    $attributes = array_merge(\Core\Session::all(), $attributes);
+    
     extract($attributes);
 
     require base_path('views/' . $path);
@@ -44,4 +47,9 @@ function redirect($path)
 {
     header("Location: {$path}");
     die();
+}
+
+function old($key, $default = '')
+{
+    return Core\Session::get('old')[$key] ?? $default;
 }

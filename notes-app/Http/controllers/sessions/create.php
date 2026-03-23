@@ -1,7 +1,8 @@
 <?php
 use Core\Database;
+use Core\Session;
 use Core\Validator;
 
 view('/sessions/create.view.php', [
-    'errors' => []
+    'errors' => Session::get('errors')
 ]);

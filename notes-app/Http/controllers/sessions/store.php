@@ -1,6 +1,7 @@
 <?php 
 
 use Core\Authenticator;
+use Core\Session;
 
 $authenticator = new Authenticator();
 $result = $authenticator->attempt($_POST['email'], $_POST['password']);
@@ -9,6 +10,11 @@ if ($result['success']) {
     redirect('/');
 }
 
-return view('sessions/create.view.php', [
-    'errors' => $result['errors']
+// Store errors in flash for PRG pattern
+Session::flash('errors', $result['errors']);
+Session::flash('old', [
+    'email' => $_POST['email'],
+    'password' => $_POST['password']
 ]);
+redirect('/login');
+

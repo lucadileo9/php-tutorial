@@ -13,7 +13,26 @@
       <a href="/" class="text-sm/6 font-semibold text-white">Home</a>
       <a href="about" class="text-sm/6 font-semibold text-white">About</a>
       <a href="contact" class="text-sm/6 font-semibold text-white">Contact</a>
-      <a href="notes" class="text-sm/6 font-semibold text-white">Notes</a>
+      <?php if ($_SESSION['user'] ?? false): ?>
+        <a href="/notes" class="text-sm/6 font-semibold text-white">Notes</a>
+      <?php endif; ?>
+    </div>
+
+    <div class="hidden lg:flex lg:items-center lg:gap-x-6">
+      <?php if ($_SESSION['user'] ?? false): ?>
+        <span class="text-sm/6 font-semibold text-gray-300"><?php echo htmlspecialchars($_SESSION['user']['email']); ?></span>
+        <form method="POST" action="/logout" class="inline">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm/6 font-semibold text-white hover:bg-indigo-500 transition">
+            Logout
+          </button>
+        </form>
+      <?php else: ?>
+        <a href="/login" class="text-sm/6 font-semibold text-white hover:text-gray-300 transition">Log in</a>
+        <a href="/registration" class="rounded-md bg-indigo-600 px-3 py-2 text-sm/6 font-semibold text-white hover:bg-indigo-500 transition">
+          Sign up
+        </a>
+      <?php endif; ?>
     </div>
   </nav>
 
@@ -38,8 +57,26 @@
               <a href="/" class="block px-3 py-2 text-base font-semibold text-white hover:bg-white/5">Home</a>
               <a href="about" class="block px-3 py-2 text-base font-semibold text-white hover:bg-white/5">About</a>
               <a href="contact" class="block px-3 py-2 text-base font-semibold text-white hover:bg-white/5">Contact</a>
-              <a href="notes" class="block px-3 py-2 text-base font-semibold text-white hover:bg-white/5">Notes</a>
+              <?php if ($_SESSION['user'] ?? false): ?>
+                <a href="/notes" class="block px-3 py-2 text-base font-semibold text-white hover:bg-white/5">Notes</a>
+              <?php endif; ?>
             
+              <div class="border-t border-gray-700 pt-4 mt-4">
+                <?php if ($_SESSION['user'] ?? false): ?>
+                  <div class="px-3 py-2 text-sm text-gray-400 mb-3">
+                    <?php echo htmlspecialchars($_SESSION['user']['email']); ?>
+                  </div>
+                  <form method="POST" action="/logout" class="block">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="w-full text-left px-3 py-2 text-base font-semibold text-white hover:bg-white/5 rounded-md">
+                      Logout
+                    </button>
+                  </form>
+                <?php else: ?>
+                  <a href="/login" class="block px-3 py-2 text-base font-semibold text-white hover:bg-white/5">Log in</a>
+                  <a href="/registration" class="block px-3 py-2 text-base font-semibold text-indigo-400 hover:bg-white/5">Sign up</a>
+                <?php endif; ?>
+              </div>
             </div>
           </div>
         </el-dialog-panel>

@@ -24,3 +24,7 @@ $router->put("/note", "controllers/notes/update.php");
 
 $router->get("/registration", "controllers/users/create.php")->middleware('guest');
 $router->post("/registration", "controllers/users/store.php");
+
+$router->get("/login", "controllers/sessions/create.php")->middleware('guest');
+$router->post("/login", "controllers/sessions/store.php");
+$router->delete("/logout", "controllers/sessions/destroy.php")->middleware('auth');

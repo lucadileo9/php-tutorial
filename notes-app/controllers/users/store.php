@@ -28,5 +28,7 @@ $db->query('INSERT INTO users(email, password) VALUES(:email, :password)', [
     'password' => password_hash($_POST['password'], PASSWORD_DEFAULT)
 ]);
 
+$_SESSION['user'] = $_POST['email'];
+
 header('location: /notes');
 die();

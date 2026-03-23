@@ -4,14 +4,15 @@ const BASE_PATH = __DIR__.'/../';
 
 require BASE_PATH.'Core/functions.php';
 
+require BASE_PATH . 'vendor/autoload.php';  
 session_start();
 
-spl_autoload_register(function ($class) {
-    // Core\Database
-    $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
+// spl_autoload_register(function ($class) {
+//     // Core\Database
+//     $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
 
-    require base_path("/{$class}.php");
-});
+//     require base_path("/{$class}.php");
+// });
 
 require base_path('bootstrap.php');
 
